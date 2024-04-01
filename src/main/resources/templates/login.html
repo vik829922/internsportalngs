@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Neurogaint Systems - Login</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
+    <style>
+        .navbar {
+            background-color: #3D3D3D; /* Set the desired background color */
+        }
+
+        .navbar-brand img {
+            width: 100px; /* Set the width of the image */
+            height: auto; /* Maintain aspect ratio */
+            transition: all 0.3s ease; /* Add smooth transition effect */
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1); /* Increase size on hover */
+        }
+
+        .navbar-nav .nav-link {
+            color: white; /* Set text color to white */
+        }
+
+        .gradient-custom-2 {
+            /* fallback for old browsers */
+            background: #8bd8ff; /* fallback color */
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to right, #8bd8ff, #3b8dc4, #0d5474);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, #8bd8ff, #3b8dc4, #0d5474);
+            transition: opacity 0.5s ease; /* Add transition effect */
+        }
+
+        .gradient-custom-2.loaded {
+            opacity: 1; /* Show the element with a fade-in effect */
+        }
+
+        .gradient-custom-2.loaded ul li {
+            transition: opacity 0.5s ease; /* Add transition effect for list items */
+            opacity: 0; /* Initially hide the list items */
+        }
+
+        .gradient-custom-2.loaded ul li:nth-child(1) {
+            transition-delay: 0.1s; /* Add a delay for the first list item */
+        }
+
+        .gradient-custom-2.loaded ul li:nth-child(2) {
+            transition-delay: 0.2s; /* Add a delay for the second list item */
+        }
+
+        .gradient-custom-2.loaded ul li:nth-child(3) {
+            transition-delay: 0.3s; /* Add a delay for the third list item */
+        }
+
+        .gradient-custom-2.loaded ul li:nth-child(4) {
+            transition-delay: 0.4s; /* Add a delay for the fourth list item */
+        }
+
+        .btn-primary:hover,
+        .btn.btn-outline-dark:hover {
+            background-color: hsl(194, 100%, 50%); /* Change to desired hover color */
+        }
+
+        @media (min-width: 768px) {
+            .gradient-form {
+                height: 100vh !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .gradient-custom-2 {
+                border-top-right-radius: .3rem;
+                border-bottom-right-radius: .3rem;
+            }
+        }
+
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active"
+                            aria-current="page" href="/">Home</a></li>
+                    
+                    <li class="nav-item"><a class="nav-link" href="/">Courses</a>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Start your project here-->
+    <section class="h-100 gradient-form" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+                                    <div class="text-center">
+                                        <img src="https://www.neurogaint.com/assets/images/logo/neurogaint_logo.png"
+                                            style="width: 185px;" alt="logo">
+                                        <h4 class="mt-1 mb-5 pb-1"></h4>
+                                    </div>
+                                    <p th:text="${errMsg}" class="text-danger" />
+                                    <form th:action="@{/login}" th:object="${loginForm}" method="POST">
+                                        <p>Please login to your account</p>
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="form2Example11" class="form-control"
+                                                placeholder="email" th:field="*{email}" /> <label
+                                                class="form-label" for="form2Example11">Email</label>
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <input type="password" id="form2Example22" class="form-control"
+                                                th:field="*{pwd}" /> <label class="form-label"
+                                                for="form2Example22">Password</label>
+                                        </div>
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <input type="submit"
+                                                class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                                                value="Login" />
+                                            <a class="text-muted" href="forgot">Forgot password?</a>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-center pb-4">
+                                            <p class="mb-0 me-2">Don't have an account?</p>
+                                            <a href="signup" type="button"
+                                                class="btn btn-outline-dark">Create New</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4 loaded">
+                                    <h4 class="mb-4">
+                                        <span class="typing-effect">Welcome To Neurogaint Systems</span>
+                                    </h4>
+                                    <ul class="list-unstyled">
+                                        <li><span style="font-size: 18px; font-weight: bold;">&#9679;</span> We will provide here real-time project knowledge to you</li>
+                                        <li><span style="font-size: 18px; font-weight: bold;">&#9679;</span> We will Provide You 3+Exp Trainer</li>
+                                        <li><span style="font-size: 18px; font-weight: bold;">&#9679;</span> Time To Time Assisment Will Be There</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End your project here-->
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector('.typing-effect');
+            const text = title.textContent;
+            title.textContent = '';
+            for (let i = 0; i < text.length; i++) {
+                setTimeout(() => {
+                    title.textContent += text[i];
+                }, i * 100); // Adjust timing as needed
+            }
+        });
+    </script>
+</body>
+
+</html>

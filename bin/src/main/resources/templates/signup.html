@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Neurogaint Systems - Sign Up</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/bootstrap-login-form.min.css" />
+    <style>
+        .gradient-custom-2 {
+            /* fallback for old browsers */
+            background: #8bd8ff;
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: -webkit-linear-gradient(to right, #8bd8ff, #3b8dc4, #0d5474);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, #8bd8ff, #3b8dc4, #0d5474);
+        }
+
+        /* Update navigation bar background */
+        .navbar {
+			background-color: #3D3D3D; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+
+        /* Update text color of navbar links */
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        @media (min-width: 768px) {
+            .gradient-form {
+                height: 100vh !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .gradient-custom-2 {
+                border-top-right-radius: .3rem;
+                border-bottom-right-radius: .3rem;
+            }
+        }
+
+        /* Updated button styles */
+        .btn-outline-dark {
+            color: #130104;
+            border-color: #1a98d7;
+        }
+
+        .btn-outline-dark:hover {
+            background-color: #0882b3;
+            border-color: #a8d1cf;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+               
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active"
+                            aria-current="page" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Courses</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact
+                            us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Start your project here-->
+
+
+    <section class="h-100 gradient-form" style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-10">
+                    <div class="card rounded-3 text-black">
+                        <div class="row g-0">
+                            <div class="col-lg-6">
+                                <div class="card-body p-md-5 mx-md-4">
+
+                                    <!-- Image above the text -->
+                                    <div class="text-center">
+                                        <img src="https://www.neurogaint.com/assets/images/logo/neurogaint_logo.png" style="width: 185px" alt="Image" />
+                                        
+                                    </div>
+
+                                    <!-- Rest of your form code -->
+                                    <p th:text="${succMsg}" class="text-success"></p>
+                                    <p th:text="${errMsg}" class="text-success"></p>
+
+                                    <form th:action="@{/signup}" th:object="${user}" method="POST">
+                                        <p>Please create account </p>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form2Example11" class="form-control"
+                                                placeholder="Name" th:field="*{name}" /> <label
+                                                class="form-label" for="form2Example11">Name</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="email" id="form2Example22"
+                                                class="form-control" placeholder="Email" th:field="*{email}" /> <label class="form-label"
+                                                for="form2Example22">Email</label>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <input type="text" id="form2Example22"
+                                                class="form-control" placeholder="Phone" th:field="*{phno}" /> <label class="form-label"
+                                                for="form2Example22">Phone</label>
+                                        </div>
+
+                                        <div class="text-center pt-1 mb-5 pb-1">
+                                            <input type="submit" value="Sign up" class="btn btn-outline-dark" />
+                                        </div>
+
+                                        <div class="d-flex align-items-center justify-content-center pb-4">
+                                            <p class="mb-0 me-2">Do You have an account?</p>
+                                            <a href="login" type="button" class="btn btn-outline-dark">Login
+                                                Here</a>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                    <h4 class="mb-4">Welcome To Neurogaint Systems </h4>
+                                    <p class="small mb-0"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript"></script>
+</body>
+
+</html>
